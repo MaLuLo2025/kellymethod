@@ -1,19 +1,24 @@
 import Link from "next/link";
 import ContourDivider from "@/components/ContourDivider";
 import RoundsSignup from "@/components/RoundsSignup";
+import HeroContour from "@/components/HeroContour";
+import StatVisual from "@/components/StatVisual";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerChildren, { StaggerItem } from "@/components/motion/StaggerChildren";
 import CountUp from "@/components/motion/CountUp";
 import { DIAGNOSIS_STATISTICS } from "@/lib/statistics";
 import { getAllArticlesForDemo, formatReadingTime } from "@/lib/articles";
 
+const STAT_VISUALS = ["years", "doctors", "arc-large", "arc-small"] as const;
+
 export default function HomePage() {
   const articles = getAllArticlesForDemo().slice(0, 3);
 
   return (
     <>
-      <section className="container-editorial pt-20 md:pt-28 pb-section">
-        <div className="max-w-3xl">
+      <section className="relative container-editorial pt-20 md:pt-28 pb-section overflow-hidden">
+        <HeroContour />
+        <div className="relative max-w-3xl">
           <FadeIn>
             <p className="text-label uppercase text-forest font-sans mb-8">
               An editorial publication on POTS
@@ -31,11 +36,11 @@ export default function HomePage() {
           </FadeIn>
           <FadeIn delay={0.4}>
             <div className="flex flex-wrap gap-4">
-              <Link href="/diagnosis" className="inline-flex items-center gap-2 px-7 py-4 bg-forest text-offwhite text-body font-sans font-medium tracking-tight rounded-sm hover:bg-forest-800 transition-colors no-underline">
+              <Link href="/diagnosis" className="inline-flex items-center gap-2 px-7 py-4 bg-forest text-offwhite text-body font-sans font-medium tracking-tight rounded-sm hover:bg-ember transition-colors no-underline">
                 Start with the diagnosis guide
                 <span aria-hidden="true">→</span>
               </Link>
-              <Link href="/what-is-pots" className="inline-flex items-center gap-2 px-7 py-4 text-body text-ink font-sans font-medium tracking-tight border border-ink/20 hover:border-forest hover:text-forest rounded-sm transition-colors no-underline">
+              <Link href="/what-is-pots" className="inline-flex items-center gap-2 px-7 py-4 text-body text-ink font-sans font-medium tracking-tight border border-ink/20 hover:border-ember hover:text-ember rounded-sm transition-colors no-underline">
                 What is POTS?
               </Link>
             </div>
@@ -48,10 +53,10 @@ export default function HomePage() {
       <section className="container-editorial py-section">
         <FadeIn>
           <div className="max-w-2xl mb-16">
-            <p className="text-label uppercase text-forest font-sans mb-4">
+            <p className="text-label uppercase text-forest font-sans mb-4 border-b-2 border-ember pb-1 inline-block">
               The diagnosis gap
             </p>
-            <h2 className="font-serif text-h1 text-ink font-medium mb-6">
+            <h2 className="font-serif text-h1 text-ink font-medium mb-6 mt-4">
               POTS is one of the most consistently missed diagnoses in medicine.
             </h2>
             <p className="text-lead text-ink/75">
@@ -61,11 +66,12 @@ export default function HomePage() {
         </FadeIn>
 
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8" staggerDelay={0.15}>
-          {DIAGNOSIS_STATISTICS.map((stat) => (
+          {DIAGNOSIS_STATISTICS.map((stat, i) => (
             <StaggerItem key={stat.label} className="border-t border-forest pt-6">
-              <p className="font-serif text-display-lg text-forest font-medium leading-none mb-4">
+              <p className="font-serif text-display-lg text-forest font-medium leading-none mb-2">
                 <CountUp value={stat.value} duration={1.4} />
               </p>
+              <StatVisual kind={STAT_VISUALS[i]} />
               <p className="text-body text-ink font-medium mb-3">
                 {stat.label}
               </p>
@@ -83,7 +89,7 @@ export default function HomePage() {
 
         <FadeIn delay={0.2}>
           <div className="mt-16 max-w-2xl">
-            <Link href="/diagnosis" className="text-body text-forest font-medium hover:text-forest-800 inline-flex items-center gap-2">
+            <Link href="/diagnosis" className="text-body text-forest font-medium hover:text-ember inline-flex items-center gap-2 transition-colors">
               Read the full diagnosis guide <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -95,10 +101,10 @@ export default function HomePage() {
       <section className="container-editorial py-section bg-offwhite">
         <FadeIn>
           <div className="max-w-2xl mb-16">
-            <p className="text-label uppercase text-forest font-sans mb-4">
+            <p className="text-label uppercase text-forest font-sans mb-4 border-b-2 border-ember pb-1 inline-block">
               What you&apos;ll find here
             </p>
-            <h2 className="font-serif text-h1 text-ink font-medium">
+            <h2 className="font-serif text-h1 text-ink font-medium mt-4">
               A publication, not a pitch.
             </h2>
           </div>
@@ -115,7 +121,7 @@ export default function HomePage() {
             <p className="text-body text-ink/75 leading-relaxed mb-5">
               A medical explanation that trusts you with the details — written clearly, cited carefully, and reviewed by clinicians.
             </p>
-            <Link href="/what-is-pots" className="text-small text-forest font-medium hover:text-forest-800 inline-flex items-center gap-2">
+            <Link href="/what-is-pots" className="text-small text-forest font-medium hover:text-ember inline-flex items-center gap-2 transition-colors">
               Start here <span aria-hidden="true">→</span>
             </Link>
           </StaggerItem>
@@ -131,7 +137,7 @@ export default function HomePage() {
             <p className="text-body text-ink/75 leading-relaxed mb-5">
               The honest story of how POTS gets missed, dismissed, or misattributed — and what patients can do to be heard.
             </p>
-            <Link href="/diagnosis" className="text-small text-forest font-medium hover:text-forest-800 inline-flex items-center gap-2">
+            <Link href="/diagnosis" className="text-small text-forest font-medium hover:text-ember inline-flex items-center gap-2 transition-colors">
               Read the guide <span aria-hidden="true">→</span>
             </Link>
           </StaggerItem>
@@ -148,7 +154,7 @@ export default function HomePage() {
             <p className="text-body text-ink/75 leading-relaxed mb-5">
               Lifestyle, medications, and the emerging science — organized by what the evidence actually supports, not by what&apos;s trending.
             </p>
-            <Link href="/treatment" className="text-small text-forest font-medium hover:text-forest-800 inline-flex items-center gap-2">
+            <Link href="/treatment" className="text-small text-forest font-medium hover:text-ember inline-flex items-center gap-2 transition-colors">
               Survey treatments <span aria-hidden="true">→</span>
             </Link>
           </StaggerItem>
@@ -160,10 +166,10 @@ export default function HomePage() {
       <section className="container-editorial py-section">
         <FadeIn>
           <div className="max-w-2xl">
-            <p className="text-label uppercase text-forest font-sans mb-4">
+            <p className="text-label uppercase text-forest font-sans mb-4 border-b-2 border-ember pb-1 inline-block">
               Rounds — the weekly newsletter
             </p>
-            <h2 className="font-serif text-h1 text-ink font-medium mb-6">
+            <h2 className="font-serif text-h1 text-ink font-medium mb-6 mt-4">
               A weekly email on POTS research, patient experience, and the state of treatment.
             </h2>
             <p className="text-lead text-ink/75 mb-10 leading-relaxed">
@@ -180,14 +186,14 @@ export default function HomePage() {
         <FadeIn>
           <div className="flex items-end justify-between mb-16 flex-wrap gap-4">
             <div>
-              <p className="text-label uppercase text-forest font-sans mb-4">
+              <p className="text-label uppercase text-forest font-sans mb-4 border-b-2 border-ember pb-1 inline-block">
                 Recent writing
               </p>
-              <h2 className="font-serif text-h1 text-ink font-medium">
+              <h2 className="font-serif text-h1 text-ink font-medium mt-4">
                 From the publication
               </h2>
             </div>
-            <Link href="/articles" className="text-small text-forest font-medium hover:text-forest-800 inline-flex items-center gap-2">
+            <Link href="/articles" className="text-small text-forest font-medium hover:text-ember inline-flex items-center gap-2 transition-colors">
               View all articles <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -196,9 +202,9 @@ export default function HomePage() {
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8" staggerDelay={0.12}>
           {articles.map((article) => (
             <StaggerItem key={article.slug}>
-              <Link href={`/articles/${article.slug}`} className="group flex flex-col no-underline border-t border-ink/15 pt-5 hover:border-forest transition-colors">
+              <Link href={`/articles/${article.slug}`} className="group flex flex-col no-underline border-t border-ink/15 pt-5 hover:border-ember transition-colors">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-label uppercase text-forest font-sans">
+                  <span className="text-label uppercase text-ember font-sans font-medium">
                     {article.category}
                   </span>
                   <span className="text-micro text-stone">·</span>
@@ -212,7 +218,7 @@ export default function HomePage() {
                 <p className="text-body text-ink/70 leading-relaxed">
                   {article.description}
                 </p>
-                <span className="mt-6 text-small text-forest font-medium inline-flex items-center gap-2">
+                <span className="mt-6 text-small text-forest group-hover:text-ember font-medium inline-flex items-center gap-2 transition-colors">
                   Read <span aria-hidden="true">→</span>
                 </span>
               </Link>
