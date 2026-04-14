@@ -5,6 +5,7 @@ const FOOTER_LINKS = {
   explore: [
     { href: "/what-is-pots", label: "What Is POTS?" },
     { href: "/diagnosis", label: "Diagnosis" },
+    { href: "/self-assessment", label: "Self-Assessment" },
     { href: "/treatment", label: "Treatment" },
     { href: "/comorbidities", label: "Comorbidities" },
     { href: "/articles", label: "Articles" },

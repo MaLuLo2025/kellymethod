@@ -117,7 +117,7 @@ export default function HomePage() {
           </div>
         </FadeIn>
 
-        <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-10" staggerDelay={0.15}>
+        <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" staggerDelay={0.15}>
           <StaggerItem>
             <div className="mb-5">
               <svg width="32" height="20" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="text-forest">
@@ -146,6 +146,24 @@ export default function HomePage() {
             </p>
             <Link href="/diagnosis" className="text-small text-ember font-semibold hover:text-forest inline-flex items-center gap-2 transition-colors">
               Read the guide <span aria-hidden="true">→</span>
+            </Link>
+          </StaggerItem>
+
+          <StaggerItem>
+            <div className="mb-5">
+              <svg width="32" height="20" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="text-forest">
+                <path d="M2 38L20 8L32 24L44 12L62 38" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                <path d="M8 38L24 14L32 26L40 18L56 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.5"/>
+                <path d="M14 38L28 18L32 28L36 22L50 38" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.35"/>
+                <path d="M20 38L32 22L36 30L40 26L46 38" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.2"/>
+              </svg>
+            </div>
+            <h3 className="font-serif text-h3 text-ink font-medium mb-4">Take a self-assessment.</h3>
+            <p className="text-body text-ink/75 leading-relaxed mb-5">
+              Organize your symptom history in a way that makes the conversation with your doctor more productive.
+            </p>
+            <Link href="/self-assessment" className="text-small text-ember font-semibold hover:text-forest inline-flex items-center gap-2 transition-colors">
+              Begin <span aria-hidden="true">→</span>
             </Link>
           </StaggerItem>
 

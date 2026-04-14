@@ -7,6 +7,7 @@ import AnimatedMark from "./AnimatedMark";
 const NAV_LINKS = [
   { href: "/what-is-pots", label: "What Is POTS?" },
   { href: "/diagnosis", label: "Diagnosis" },
+  { href: "/self-assessment", label: "Self-Assessment" },
   { href: "/articles", label: "Articles" },
   { href: "/resources", label: "Resources" },
   { href: "/subscribe", label: "Rounds" },

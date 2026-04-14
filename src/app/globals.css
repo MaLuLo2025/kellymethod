@@ -112,3 +112,23 @@ body {
   padding: 0.5em 0.75em;
   border-bottom: 1px solid #eee;
 }
+
+@media print {
+  header,
+  footer,
+  nav,
+  [role="dialog"] {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  * {
+    box-shadow: none !important;
+  }
+}
