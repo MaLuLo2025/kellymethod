@@ -20,6 +20,16 @@ export const ARTICLES: Article[] = [
     status: "published",
   },
   {
+    slug: "how-pots-is-diagnosed",
+    title: "How POTS Is Diagnosed in Ten Minutes",
+    description:
+      "The active stand test confirms POTS at the bedside in ten minutes, with no equipment beyond a blood pressure cuff. Here\u2019s how it works, what the numbers mean, and how to ask for it.",
+    category: "Diagnosis",
+    publishedOn: "2026-04-15",
+    readingTimeMinutes: 8,
+    status: "published",
+  },
+  {
     slug: "why-pots-is-missed",
     title: "Why POTS is missed: the diagnostic failure no one talks about",
     description:
