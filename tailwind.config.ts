@@ -9,7 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        forest: "#1F4E3D",
+        forest: {
+          DEFAULT: "#1F4E3D",
+          800: "#174032",
+        },
         offwhite: "#F7F5EF",
         ink: "#1C1C1C",
         ember: "#C66D3E",
@@ -33,6 +36,16 @@ const config: Config = {
           "Arial",
           "sans-serif",
         ],
+      },
+      fontSize: {
+        display: ["2.75rem", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
+        h1: ["2.25rem", { lineHeight: "1.2" }],
+        h2: ["1.5rem", { lineHeight: "1.3" }],
+        lead: ["1.25rem", { lineHeight: "1.7" }],
+        body: ["1.0625rem", { lineHeight: "1.75" }],
+        small: ["0.9375rem", { lineHeight: "1.6" }],
+        label: ["0.8125rem", { lineHeight: "1.4", letterSpacing: "0.05em" }],
+        micro: ["0.75rem", { lineHeight: "1.4" }],
       },
     },
   },

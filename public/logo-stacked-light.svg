@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" fill="none" aria-label="The Kelly Method">
+  <g transform="translate(116, 20) scale(2)">
+    <path d="M2 38L20 8L32 24L44 12L62 38" stroke="#F7F5EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M8 38L24 14L32 26L40 18L56 38" stroke="#F7F5EF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/>
+  </g>
+  <text x="180" y="150" font-family="Lora, Georgia, 'Times New Roman', serif" font-size="36" font-weight="400" fill="#F7F5EF" letter-spacing="0.5" text-anchor="middle">The Kelly Method</text>
+</svg>

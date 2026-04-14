@@ -9,6 +9,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Layout utilities */
+.container-editorial {
+  @apply mx-auto max-w-4xl px-6 md:px-8;
+}
+
+.pb-section {
+  @apply pb-20 md:pb-28;
+}
+
 /* Editorial prose defaults for MDX article content */
 .prose h1,
 .prose h2,
