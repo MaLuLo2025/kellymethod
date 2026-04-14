@@ -6,7 +6,7 @@ import ContourDivider from "@/components/ContourDivider";
 export const metadata: Metadata = {
   title: "Subscribe to Rounds",
   description:
-    "A weekly email on POTS research, patient experience, and the state of treatment.",
+    "A regular, independent publication for POTS patients with help, information, and resources.",
 };
 
 export default function SubscribePage() {
@@ -18,13 +18,12 @@ export default function SubscribePage() {
             The Kelly Method — Rounds
           </p>
           <h1 className="font-serif text-display text-ink font-medium mb-8 leading-tight">
-            A weekly email on POTS research, patient experience, and the state
-            of treatment.
+            A regular, independent publication for POTS patients with help,
+            information, and resources.
           </h1>
           <p className="font-serif text-lead text-ink/75 italic mb-10 leading-relaxed">
-            Rounds arrives every Sunday. We read the studies, follow the
-            debates, and translate them into writing that treats you as an
-            adult navigating a serious condition.
+            High value content. Sent regularly. An independent publication
+            written for patients and clinicians.
           </p>
           <RoundsSignup variant="dark" />
         </div>
@@ -43,7 +42,7 @@ export default function SubscribePage() {
               — a new paper, a shift in treatment thinking, a story from the
               patient community — followed by a handful of shorter links and
               notes. Twelve to fifteen minutes of reading, edited carefully,
-              published weekly.
+              published regularly.
             </p>
           </div>
 

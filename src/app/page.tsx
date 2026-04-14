@@ -176,7 +176,7 @@ export default function HomePage() {
                 Rounds — the newsletter
               </p>
               <h2 className="font-serif text-h1 text-offwhite font-medium mb-6">
-                A considered email on POTS research, patient experience, and the state of treatment.
+                A regular, independent publication for POTS patients with help, information, and resources.
               </h2>
               <p className="text-lead text-offwhite/80 mb-10 leading-relaxed">
                 High value content. Sent regularly. An independent publication written for patients and clinicians.

@@ -46,7 +46,7 @@ export default function Header() {
           aria-label="The Kelly Method — home"
         >
           <AnimatedMark size={48} duration={1.1} ariaLabel="The Kelly Method" />
-          <span className="font-serif text-xl md:text-2xl text-ink tracking-tight font-medium">
+          <span className="font-serif text-xl md:text-2xl text-forest tracking-tight font-medium">
             The Kelly Method
           </span>
         </Link>
