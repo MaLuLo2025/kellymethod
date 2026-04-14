@@ -87,12 +87,8 @@ export default async function ArticlePage({ params }: PageProps) {
 
       {/* ===== ARTICLE BODY ===== */}
       <section className="container-editorial pb-section-sm">
-        <article className="max-w-prose mx-auto">
-          <FadeIn>
-            <div className="prose">
-              {MDXContent && <MDXContent />}
-            </div>
-          </FadeIn>
+        <article className="max-w-prose mx-auto prose">
+          {MDXContent && <MDXContent />}
         </article>
       </section>
 
