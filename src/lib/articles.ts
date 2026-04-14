@@ -8,7 +8,17 @@ export interface Article {
   status: "published" | "draft";
 }
 
-const articles: Article[] = [
+export const ARTICLES: Article[] = [
+  {
+    slug: "if-youve-been-told-its-anxiety",
+    title: "If you\u2019ve been told it\u2019s anxiety, read this",
+    description:
+      "Most POTS patients are told their symptoms are psychiatric before anyone checks their heart rate. Here\u2019s why it happens, what to ask for instead, and how to get the right test.",
+    category: "Diagnosis",
+    publishedOn: "2026-04-14",
+    readingTimeMinutes: 12,
+    status: "published",
+  },
   {
     slug: "why-pots-is-missed",
     title: "Why POTS is missed: the diagnostic failure no one talks about",
@@ -42,7 +52,7 @@ const articles: Article[] = [
 ];
 
 export function getAllArticlesForDemo(): Article[] {
-  return articles;
+  return ARTICLES;
 }
 
 export function formatReadingTime(minutes: number): string {
