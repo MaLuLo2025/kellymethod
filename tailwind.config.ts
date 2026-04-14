@@ -20,6 +20,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: [
+          "var(--font-lora)",
           "Georgia",
           "Cambria",
           '"Times New Roman"',
