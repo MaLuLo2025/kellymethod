@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import AnimatedMark from "./AnimatedMark";
 
 const NAV_LINKS = [
   { href: "/what-is-pots", label: "What Is POTS?" },
@@ -10,38 +11,6 @@ const NAV_LINKS = [
   { href: "/subscribe", label: "Rounds" },
   { href: "/about", label: "About" },
 ] as const;
-
-function LogoMark({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      width="48"
-      height="30"
-      viewBox="0 0 64 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      className={`text-forest ${className}`}
-    >
-      <path
-        d="M2 38L20 8L32 24L44 12L62 38"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-      <path
-        d="M8 38L24 14L32 26L40 18L56 38"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-        opacity="0.4"
-      />
-    </svg>
-  );
-}
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -76,7 +45,7 @@ export default function Header() {
           className="flex items-center gap-3 no-underline hover:opacity-80 transition-opacity"
           aria-label="The Kelly Method — home"
         >
-          <LogoMark />
+          <AnimatedMark size={48} duration={1.1} ariaLabel="The Kelly Method" />
           <span className="font-serif text-xl md:text-2xl text-ink tracking-tight font-medium">
             The Kelly Method
           </span>
@@ -87,7 +56,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
-              className="text-small text-ink/75 hover:text-forest no-underline font-sans tracking-tight transition-colors"
+              className="text-small text-ink/75 hover:text-ember no-underline font-sans tracking-tight transition-colors"
             >
               {label}
             </Link>
@@ -141,7 +110,7 @@ export default function Header() {
                 key={href}
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className="text-lg text-ink/80 hover:text-forest no-underline font-serif py-2"
+                className="text-lg text-ink/80 hover:text-ember no-underline font-serif py-2"
               >
                 {label}
               </Link>

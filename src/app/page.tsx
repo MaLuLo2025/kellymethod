@@ -3,6 +3,7 @@ import ContourDivider from "@/components/ContourDivider";
 import RoundsSignup from "@/components/RoundsSignup";
 import HeroContour from "@/components/HeroContour";
 import StatVisual from "@/components/StatVisual";
+import AnimatedMark from "@/components/AnimatedMark";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerChildren, { StaggerItem } from "@/components/motion/StaggerChildren";
 import CountUp from "@/components/motion/CountUp";
@@ -16,14 +17,20 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative container-editorial pt-20 md:pt-28 pb-section overflow-hidden">
+      <section className="relative container-editorial pt-16 md:pt-20 pb-20 md:pb-24 overflow-hidden">
         <HeroContour />
+
+        <div className="absolute top-8 right-8 md:top-12 md:right-16 hidden sm:block pointer-events-none">
+          <AnimatedMark
+            size={160}
+            delay={0.2}
+            duration={1.6}
+            outerOpacity={0.5}
+            innerOpacity={0.25}
+          />
+        </div>
+
         <div className="relative max-w-3xl">
-          <FadeIn>
-            <p className="text-label uppercase text-ember font-sans font-semibold mb-8 tracking-widest">
-              An editorial publication on POTS
-            </p>
-          </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="font-serif text-display text-ink font-medium mb-8 leading-tight tracking-tight">
               The average POTS patient sees seven doctors before getting diagnosed. Most are told their symptoms are psychiatric. Most are wrong.
@@ -48,10 +55,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-forest-50 py-section">
+      <section className="bg-forest-50 py-section-sm">
         <div className="container-editorial">
           <FadeIn>
-            <div className="max-w-2xl mb-16">
+            <div className="max-w-2xl mb-12">
               <p className="text-label uppercase text-ember font-sans font-semibold mb-4 tracking-widest">
                 The diagnosis gap
               </p>
@@ -87,7 +94,7 @@ export default function HomePage() {
           </StaggerChildren>
 
           <FadeIn delay={0.2}>
-            <div className="mt-16 max-w-2xl">
+            <div className="mt-12 max-w-2xl">
               <Link href="/diagnosis" className="text-body text-ember font-semibold hover:text-forest inline-flex items-center gap-2 transition-colors">
                 Read the full diagnosis guide <span aria-hidden="true">→</span>
               </Link>
@@ -96,11 +103,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ContourDivider variant="mark" />
-
-      <section className="container-editorial py-section">
+      <section className="container-editorial py-section-sm">
         <FadeIn>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-2xl mb-12">
             <p className="text-label uppercase text-ember font-sans font-semibold mb-4 tracking-widest">
               What you&apos;ll find here
             </p>
@@ -110,7 +115,7 @@ export default function HomePage() {
           </div>
         </FadeIn>
 
-        <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10" staggerDelay={0.15}>
+        <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-10" staggerDelay={0.15}>
           <StaggerItem>
             <div className="mb-5">
               <svg width="32" height="20" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="text-forest">
@@ -161,7 +166,7 @@ export default function HomePage() {
         </StaggerChildren>
       </section>
 
-      <section className="bg-forest text-offwhite py-section">
+      <section className="bg-forest text-offwhite py-section-sm">
         <div className="container-editorial">
           <FadeIn>
             <div className="max-w-2xl">
@@ -180,11 +185,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ContourDivider variant="mark" />
-
-      <section className="container-editorial py-section">
+      <section className="container-editorial py-section-sm">
         <FadeIn>
-          <div className="flex items-end justify-between mb-16 flex-wrap gap-4">
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
             <div>
               <p className="text-label uppercase text-ember font-sans font-semibold mb-4 tracking-widest">
                 Recent writing
