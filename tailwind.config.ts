@@ -38,9 +38,11 @@ const config: Config = {
         ],
       },
       fontSize: {
+        "display-lg": ["3.25rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
         display: ["2.75rem", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
         h1: ["2.25rem", { lineHeight: "1.2" }],
         h2: ["1.5rem", { lineHeight: "1.3" }],
+        h3: ["1.25rem", { lineHeight: "1.35" }],
         lead: ["1.25rem", { lineHeight: "1.7" }],
         body: ["1.0625rem", { lineHeight: "1.75" }],
         small: ["0.9375rem", { lineHeight: "1.6" }],

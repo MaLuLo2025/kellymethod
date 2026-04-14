@@ -18,6 +18,10 @@ body {
   @apply pb-20 md:pb-28;
 }
 
+.py-section {
+  @apply py-20 md:py-28;
+}
+
 /* Editorial prose defaults for MDX article content */
 .prose h1,
 .prose h2,
