@@ -3,83 +3,130 @@
 import { useState } from "react";
 
 interface RoundsSignupProps {
-  variant?: "dark" | "light";
+  variant?: "light" | "dark";
+  placeholder?: string;
+  className?: string;
 }
 
-export default function RoundsSignup({ variant = "dark" }: RoundsSignupProps) {
+export default function RoundsSignup({
+  variant = "dark",
+  placeholder = "your@email.com",
+  className = "",
+}: RoundsSignupProps) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [message, setMessage] = useState<string>("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email) return;
-    setStatus("loading");
+    if (!email || status === "submitting") return;
+
+    setStatus("submitting");
+    setMessage("");
 
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, source: "website" }),
       });
+
       if (res.ok) {
         setStatus("success");
+        setMessage("Check your inbox for a confirmation email.");
         setEmail("");
       } else {
+        const data = await res.json().catch(() => ({}));
         setStatus("error");
+        setMessage(data?.error || "Something went wrong. Please try again.");
       }
     } catch {
       setStatus("error");
+      setMessage("Something went wrong. Please try again.");
     }
   }
 
-  const isDark = variant === "dark";
+  const isLight = variant === "light";
+  const isDone = status === "success";
 
-  if (status === "success") {
+  const inputBase =
+    "flex-1 px-5 py-3.5 text-body font-sans rounded-sm border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+
+  const inputLight =
+    "bg-offwhite/5 border-offwhite/25 text-offwhite placeholder:text-offwhite/50 focus:border-offwhite focus:bg-offwhite/10 focus:ring-offwhite/40 focus:ring-offset-forest";
+
+  const inputDark =
+    "bg-white border-ink/15 text-ink placeholder:text-stone focus:border-forest focus:ring-forest/20 focus:ring-offset-offwhite";
+
+  const buttonBase =
+    "px-6 py-3.5 text-small font-sans font-medium tracking-tight rounded-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap";
+
+  const buttonLight =
+    "bg-ember text-offwhite hover:bg-ember-700";
+
+  const buttonDark =
+    "bg-ember text-offwhite hover:bg-ember-700";
+
+  if (isDone) {
     return (
-      <div className={`rounded-lg p-8 ${isDark ? "bg-forest text-white" : "bg-offwhite text-ink"}`}>
-        <p className="font-serif text-lg">
-          You&apos;re in. Watch your inbox for the next issue of Rounds.
+      <div className={className}>
+        <p
+          className={`font-serif italic text-lead ${
+            isLight ? "text-offwhite" : "text-forest"
+          }`}
+        >
+          Thank you. {message}
         </p>
       </div>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={`rounded-lg p-8 ${isDark ? "bg-forest" : "bg-offwhite border border-ink/10"}`}
-    >
-      <p className={`font-serif text-lg mb-4 ${isDark ? "text-white" : "text-ink"}`}>
-        Subscribe to <strong>Rounds</strong> — our weekly email.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-3">
+    <div className={className}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col sm:flex-row gap-3 max-w-xl"
+        noValidate
+      >
+        <label htmlFor="rounds-email" className="sr-only">
+          Email address
+        </label>
         <input
+          id="rounds-email"
           type="email"
           required
-          placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 px-4 py-3 rounded-md text-ink bg-white border border-ink/10 placeholder:text-stone/50 focus:outline-none focus:ring-2 focus:ring-ember"
+          placeholder={placeholder}
+          autoComplete="email"
+          disabled={status === "submitting"}
+          className={`${inputBase} ${isLight ? inputLight : inputDark}`}
         />
         <button
           type="submit"
-          disabled={status === "loading"}
-          className="px-6 py-3 rounded-md bg-ember text-white font-medium hover:bg-ember/90 transition-colors disabled:opacity-60"
+          disabled={status === "submitting" || !email}
+          className={`${buttonBase} ${isLight ? buttonLight : buttonDark}`}
         >
-          {status === "loading" ? "Subscribing…" : "Subscribe"}
+          {status === "submitting" ? "Subscribing…" : "Subscribe to Rounds"}
         </button>
-      </div>
+      </form>
       {status === "error" && (
-        <p className="text-sm mt-3 text-red-400">
-          Something went wrong. Please try again.
+        <p
+          className={`mt-3 text-small font-sans ${
+            isLight ? "text-ember-100" : "text-ember"
+          }`}
+          role="alert"
+        >
+          {message}
         </p>
       )}
-      <p className={`text-xs mt-4 ${isDark ? "text-white/60" : "text-stone"}`}>
-        No spam. Unsubscribe any time.{" "}
-        <a href="/privacy" className={isDark ? "text-white/80 underline" : "text-forest underline"}>
-          Privacy policy
-        </a>
+      <p
+        className={`mt-3 text-micro font-sans ${
+          isLight ? "text-offwhite/55" : "text-stone"
+        }`}
+      >
+        Unsubscribe anytime.
       </p>
-    </form>
+    </div>
   );
 }

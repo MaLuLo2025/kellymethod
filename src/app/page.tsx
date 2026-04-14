@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ContourDivider from "@/components/ContourDivider";
 import RoundsSignup from "@/components/RoundsSignup";
 import HeroContour from "@/components/HeroContour";
 import StatVisual from "@/components/StatVisual";
@@ -20,13 +19,16 @@ export default function HomePage() {
       <section className="relative container-editorial pt-16 md:pt-20 pb-20 md:pb-24 overflow-hidden">
         <HeroContour />
 
-        <div className="absolute top-8 right-8 md:top-12 md:right-16 hidden sm:block pointer-events-none">
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden="true"
+        >
           <AnimatedMark
-            size={160}
-            delay={0.2}
-            duration={1.6}
-            outerOpacity={0.5}
-            innerOpacity={0.25}
+            size={560}
+            delay={0.3}
+            duration={1.8}
+            outerOpacity={0.10}
+            innerOpacity={0.05}
           />
         </div>
 
@@ -171,13 +173,13 @@ export default function HomePage() {
           <FadeIn>
             <div className="max-w-2xl">
               <p className="text-label uppercase text-ember font-sans font-semibold mb-4 tracking-widest">
-                Rounds — the weekly newsletter
+                Rounds — the newsletter
               </p>
               <h2 className="font-serif text-h1 text-offwhite font-medium mb-6">
-                A weekly email on POTS research, patient experience, and the state of treatment.
+                A considered email on POTS research, patient experience, and the state of treatment.
               </h2>
               <p className="text-lead text-offwhite/80 mb-10 leading-relaxed">
-                Every Sunday. Carefully written, carefully sourced. No marketing, no data selling, no sponsored content.
+                High value content. Sent regularly. An independent publication written for patients and clinicians.
               </p>
               <RoundsSignup variant="light" />
             </div>
