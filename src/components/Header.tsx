@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: "/what-is-pots", label: "What Is POTS?" },
   { href: "/diagnosis", label: "Diagnosis" },
   { href: "/articles", label: "Articles" },
+  { href: "/resources", label: "Resources" },
   { href: "/subscribe", label: "Rounds" },
   { href: "/about", label: "About" },
 ] as const;
