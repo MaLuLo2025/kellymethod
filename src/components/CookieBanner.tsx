@@ -1,73 +1,67 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-const STORAGE_KEY = "km_cookie_consent";
-type ConsentChoice = "accepted" | "rejected";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useCookieConsent } from "./CookieConsentContext";
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+  const { consent, acceptConsent, declineConsent } = useCookieConsent();
+  const shouldReduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) {
-      const t = setTimeout(() => setVisible(true), 600);
-      return () => clearTimeout(t);
-    }
-    if (stored === "accepted") {
-      initializeAnalytics();
-    }
-  }, []);
-
-  function setConsent(choice: ConsentChoice) {
-    localStorage.setItem(STORAGE_KEY, choice);
-    setVisible(false);
-    if (choice === "accepted") {
-      initializeAnalytics();
-    }
-  }
-
-  function initializeAnalytics() {
-    // GA4 hook — wired in Round 1.5 when Measurement ID is provided.
-  }
-
-  if (!visible) return null;
+  // Only show the banner if the user hasn't made a choice yet.
+  const isVisible = consent === "unknown";
 
   return (
-    <div
-      role="dialog"
-      aria-labelledby="cookie-banner-heading"
-      aria-describedby="cookie-banner-description"
-      className="fixed bottom-0 inset-x-0 z-50 bg-offwhite border-t border-ink/15 shadow-card animate-fade-up"
-    >
-      <div className="container-editorial py-5 md:py-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-        <div className="flex-1">
-          <h2 id="cookie-banner-heading" className="sr-only">Cookie preferences</h2>
-          <p id="cookie-banner-description" className="text-small text-ink/85 max-w-3xl">
-            We use cookies to understand how the site is used so we can improve it. We don&apos;t sell your data or share it with advertisers.{" "}
-            <Link href="/cookies" className="text-forest underline decoration-forest/40 hover:decoration-forest">
-              Read the cookie policy.
-            </Link>
-          </p>
-        </div>
-        <div className="flex gap-3 flex-shrink-0">
-          <button
-            type="button"
-            onClick={() => setConsent("rejected")}
-            className="px-5 py-2.5 text-small font-sans text-ink/80 hover:text-ink border border-ink/20 hover:border-ink/40 rounded-sm transition-colors"
-          >
-            Reject
-          </button>
-          <button
-            type="button"
-            onClick={() => setConsent("accepted")}
-            className="px-5 py-2.5 text-small font-sans font-medium text-offwhite bg-forest hover:bg-forest-800 rounded-sm transition-colors"
-          >
-            Accept
-          </button>
-        </div>
-      </div>
-    </div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ y: shouldReduceMotion ? 0 : 80, opacity: shouldReduceMotion ? 1 : 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: shouldReduceMotion ? 0 : 80, opacity: shouldReduceMotion ? 1 : 0 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 0.4,
+            ease: [0.4, 0, 0.2, 1],
+          }}
+          className="fixed bottom-0 left-0 right-0 z-50 bg-forest text-offwhite border-t border-offwhite/15 shadow-lg"
+          role="dialog"
+          aria-label="Cookie consent"
+        >
+          <div className="container-editorial py-5 md:py-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+              <div className="flex-1 max-w-3xl">
+                <p className="text-small text-offwhite/90 leading-relaxed font-sans">
+                  We use a small number of cookies to understand how readers use the site
+                  and to improve it over time. Nothing personal, no third-party advertising,
+                  no data sold. See our{" "}
+                  <Link
+                    href="/cookies"
+                    className="underline decoration-offwhite/50 hover:decoration-offwhite text-offwhite"
+                  >
+                    cookies policy
+                  </Link>
+                  {" "}for details.
+                </p>
+              </div>
+              <div className="flex gap-3 flex-shrink-0">
+                <button
+                  type="button"
+                  onClick={declineConsent}
+                  className="px-5 py-2.5 text-small font-sans font-medium text-offwhite/80 hover:text-offwhite border border-offwhite/30 hover:border-offwhite/60 rounded-sm transition-colors whitespace-nowrap"
+                >
+                  Decline
+                </button>
+                <button
+                  type="button"
+                  onClick={acceptConsent}
+                  className="px-5 py-2.5 text-small font-sans font-medium bg-ember text-offwhite hover:bg-ember-700 rounded-sm transition-colors whitespace-nowrap shadow-sm"
+                >
+                  Accept
+                </button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

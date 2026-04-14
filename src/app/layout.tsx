@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import { CookieConsentProvider } from "@/components/CookieConsentContext";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -93,10 +95,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={lora.variable}>
       <body className="min-h-screen flex flex-col bg-offwhite text-ink antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <CookieBanner />
+        <CookieConsentProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <CookieBanner />
+          <GoogleAnalytics />
+        </CookieConsentProvider>
       </body>
     </html>
   );
