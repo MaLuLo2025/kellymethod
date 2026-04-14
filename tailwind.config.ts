@@ -10,12 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         forest: {
+          50: "#F2F7F4",
           DEFAULT: "#1F4E3D",
           800: "#174032",
         },
         offwhite: "#F7F5EF",
         ink: "#1C1C1C",
-        ember: "#C66D3E",
+        ember: {
+          DEFAULT: "#C66D3E",
+          700: "#A85A32",
+        },
         stone: "#6B6B5E",
       },
       fontFamily: {
