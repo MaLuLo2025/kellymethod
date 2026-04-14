@@ -244,10 +244,16 @@ export default function ResourcesPage() {
           <FadeIn delay={0.25}>
             <div className="font-serif text-lead text-ink/80 italic leading-relaxed space-y-4">
               <p>
-                We are not the only resource for POTS patients, and we don&apos;t intend to be. The organizations, directories, and references below have been doing valuable work in this space for longer than we have — and for most of what patients actually need, they are the first place to look.
+                POTS pulls patients into a rabbit hole. Symptoms push you to search, and the search rewards you with a flood of information — some authoritative, some outdated, some wrong, and a great deal of it contradictory. It is genuinely hard to know what to trust, and reading everything is rarely the same as understanding anything.
               </p>
               <p>
-                This list is curated rather than exhaustive. Every entry here is a resource we would send to a patient or clinician ourselves. Inclusion is not an endorsement of every position or product associated with the organization, but a judgment that the resource is useful on balance and worth consulting.
+                The Kelly Method is our answer to that problem. We try to be comprehensive without being overwhelming — a careful publication on a condition that deserves one.
+              </p>
+              <p>
+                But we are patient-focused, and the best publication cannot serve every reader&apos;s every need. The organizations, directories, and references below have been doing important work in POTS for longer than we have. For readers who want to go deeper, consult a specialist, join a community, pursue disability accommodations, or explore a specific comorbidity, these are the resources we would point them to ourselves.
+              </p>
+              <p>
+                The list is curated rather than exhaustive. Every entry is something we would recommend to a patient or clinician we knew personally. Inclusion is not an endorsement of every position or product associated with the organization — it is a judgment that the resource is useful on balance and worth consulting.
               </p>
               <p>
                 The list is reviewed periodically. If a resource here is broken, misleading, or no longer worth recommending, write to{" "}
