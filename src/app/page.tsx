@@ -34,7 +34,7 @@ export default function HomePage() {
 
         <div className="relative max-w-3xl">
           <FadeIn delay={0.1}>
-            <h1 className="font-serif text-display text-ink font-medium mb-8 leading-tight tracking-tight">
+            <h1 className="font-serif text-h1 md:text-display text-ink font-medium mb-8 leading-tight tracking-tight">
               The average POTS patient sees seven doctors and waits almost five years for an accurate diagnosis. Most are told their symptoms are psychiatric. The diagnosis is almost always wrong.
             </h1>
           </FadeIn>
