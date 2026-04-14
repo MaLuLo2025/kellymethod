@@ -101,7 +101,7 @@ export default function DiagnosisPage() {
               </p>
               <h3>The symptoms mimic anxiety.</h3>
               <p>
-                Racing heart. Shortness of breath. Lightheadedness. Trembling. Chest tightness. Nausea. Brain fog. These are also classic symptoms of a panic attack. A physician encountering them in a young woman — and most POTS patients are young women — will frequently reach for the anxiety diagnosis first. Often without running any tests.
+                Racing heart. Shortness of breath. Lightheadedness. Trembling. Chest tightness. Nausea. Brain fog. These are also classic symptoms of a panic attack. A clinician encountering this symptom cluster — particularly without prior familiarity with POTS — will frequently reach for the anxiety diagnosis first. The standard tests come back normal. The two presentations can look similar without the specific stand test that distinguishes them.
               </p>
               <p>
                 The tell is that POTS symptoms are triggered by standing, not by emotional stress. But that distinction requires a doctor to think to ask about it, and many don&apos;t.
@@ -124,12 +124,12 @@ export default function DiagnosisPage() {
               <p>
                 A published survey found that only about 28% of primary care physicians could correctly identify POTS as a clinical entity. Most medical schools devote little or no curriculum time to dysautonomia. For a condition affecting an estimated one to three million Americans, that gap in clinical education is remarkable — and it is the reason most patients bounce through specialists for years before someone knows what to look for.
               </p>
-              <h3>Gender and age play a role.</h3>
+              <h3>Demographics</h3>
               <p>
-                Approximately 85% of POTS patients are female, and most experience symptom onset between ages 15 and 50. A well-documented pattern in medical research shows that younger female patients with complex, non-specific symptoms are more likely to be dismissed, more likely to be told their symptoms are psychological, and more likely to wait longer for a correct diagnosis than male patients with comparable presentations.
+                POTS affects an estimated one to three million Americans. Approximately 85% of patients are female, and most experience symptom onset between adolescence and the mid-forties. Pediatric and male presentations exist but are less commonly described in the literature, which can make those patients particularly difficult to identify without specific clinical training.
               </p>
               <p>
-                This is not an accusation. It is a documented pattern. Naming it is part of getting around it.
+                The diagnostic delay affects all POTS patients, regardless of demographic. Coming into a clinical encounter prepared — with a clear symptom history, an understanding of what the active stand test measures, and the language to ask for it — is the strongest leverage any patient has, regardless of who they are.
               </p>
             </div>
           </FadeIn>
